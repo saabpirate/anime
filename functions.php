@@ -1,12 +1,11 @@
 <?php
-   $dbserver="192.168.1.213";
-   $dbusr="secanime";
-   $dbpass="mmm111";
-   $dbname="anime";
+   $dbserver="";
+   $dbusr="";
+   $dbpass="";
+   $dbname="";
    $acon=mysqli_connect($dbserver,$dbusr,$dbpass,$dbname);
 
 function createList(){
-  #$acon=mysqli_connect("192.168.1.213","secanime","mmm111","anime");
   global $acon;
   $total=0;
   $result=mysqli_query($acon,"SELECT * FROM AnimeList ORDER BY DateWatched");
@@ -25,7 +24,6 @@ function createList(){
 
 function insertShow(){
   global $acon;
-  #$acon=mysqli_connect("192.168.1.213","secanime","mmm111","anime");
   if(empty($_POST['anotes']))
   {
     $sql="INSERT INTO AnimeList (Name, Episodes, Rating, DateWatched) VALUES ('" . $_POST['atitle'] . "', '" . $_POST['episodenum'] . "', '" . $_POST['arating'] . "', DATE_FORMAT(NOW(),'%Y-%m-%d'))";
